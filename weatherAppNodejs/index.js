@@ -1,6 +1,8 @@
 const http = require("http");
 const fs = require("fs");
 var requests = require("requests");
+// import dotenv file to use environment variable
+require('dotenv').config();
 
 const homeFile = fs.readFileSync("home.html", "utf-8");
 
