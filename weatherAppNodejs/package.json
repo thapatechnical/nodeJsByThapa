@@ -9,6 +9,7 @@
   "author": "thapa technical",
   "license": "ISC",
   "dependencies": {
-    "requests": "^0.3.0"
+    "requests": "^0.3.0",
+    "dotenv": "^8.2.0"
   }
 }
