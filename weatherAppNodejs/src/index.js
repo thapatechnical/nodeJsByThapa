@@ -1,8 +1,11 @@
+require('dotenv').config();
 const http = require("http");
 const fs = require("fs");
 var requests = require("requests");
 
+
 const homeFile = fs.readFileSync("home.html", "utf-8");
+
 
 const replaceVal = (tempVal, orgVal) => {
   let temperature = tempVal.replace("{%tempval%}", orgVal.main.temp);
@@ -18,7 +21,7 @@ const replaceVal = (tempVal, orgVal) => {
 const server = http.createServer((req, res) => {
   if (req.url == "/") {
     requests(
-      "http://api.openweathermap.org/data/2.5/weather?q=Pune&units=metric&appid=b14425a6554d189a2d7dc18a8e7d7263"
+      `http://api.openweathermap.org/data/2.5/weather?q=Pune&units=metric&appid=${process.env.APPID}`
     )
       .on("data", (chunk) => {
         const objdata = JSON.parse(chunk);
